@@ -3,5 +3,5 @@ var b = 7;
 function add(number1, number2) {
     return number1 + number2;
 }
-var result = add(4, 3);
+var result = add(a, b);
 console.log(result);
