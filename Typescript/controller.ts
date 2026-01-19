@@ -1,4 +1,4 @@
-wimport { Autogeschaeft1 } from "./autogeschaeft1.js";
+import { Autogeschaeft1 } from "./autogeschaeft1.js";
 import { Autogeschaeft2 } from "./autogeschaeft2.js";
 import { CarController } from "./carController.js";
 
