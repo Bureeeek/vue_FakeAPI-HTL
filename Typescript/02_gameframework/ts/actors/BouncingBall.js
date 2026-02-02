@@ -1,40 +1,37 @@
 export class BouncingBall {
-    constructor(bounds, x = 120, y = 140, radius = 18, color = "#ff6f00") {
+    constructor(bounds, x = 80, y = 60, r = 18, color = "#4ea3ff") {
         this.bounds = bounds;
         this.x = x;
         this.y = y;
-        this.radius = radius;
+        this.r = r;
         this.color = color;
-        this.vx = 180;
+        this.vx = 160;
         this.vy = 110;
     }
     update(deltaTime) {
-        // Bewegung in Pixel pro Sekunde.
         this.x += this.vx * deltaTime;
         this.y += this.vy * deltaTime;
-        // Links/rechts abprallen.
-        if (this.x - this.radius < 0) {
-            this.x = this.radius;
+        if (this.x - this.r < 0) {
+            this.x = this.r;
             this.vx *= -1;
         }
-        else if (this.x + this.radius > this.bounds.width) {
-            this.x = this.bounds.width - this.radius;
+        else if (this.x + this.r > this.bounds.width) {
+            this.x = this.bounds.width - this.r;
             this.vx *= -1;
         }
-        // Oben/unten abprallen.
-        if (this.y - this.radius < 0) {
-            this.y = this.radius;
+        if (this.y - this.r < 0) {
+            this.y = this.r;
             this.vy *= -1;
         }
-        else if (this.y + this.radius > this.bounds.height) {
-            this.y = this.bounds.height - this.radius;
+        else if (this.y + this.r > this.bounds.height) {
+            this.y = this.bounds.height - this.r;
             this.vy *= -1;
         }
     }
     render(ctx) {
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         ctx.fill();
     }
 }
